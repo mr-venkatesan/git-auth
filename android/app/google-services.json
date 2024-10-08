@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "370702958490",
+    "project_id": "git-auth-237fb",
+    "storage_bucket": "git-auth-237fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370702958490:android:9902c250c3840c2fa98423",
+        "android_client_info": {
+          "package_name": "com.example.git_auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5am0-agU1_Rkf0z4ORRLr1A3HzfFcwLE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
