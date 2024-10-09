@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:git_auth/router/routes.dart';
 import 'package:git_auth/view/pages/home_view.dart';
@@ -8,13 +9,18 @@ class RouteHandler{
   static Route<dynamic> generateRoute(RouteSettings settings){
     switch (settings.name) {
       case Routes.root:
+        User? user = FirebaseAuth.instance.currentUser;
+        if (user != null) {
+          return _createSlideTransitionRoute(const HomeView());
+        }
         return _createSlideTransitionRoute(const SignInView());
       case Routes.signIn:
         return _createSlideTransitionRoute(const SignInView());
       case Routes.home:
         return _createSlideTransitionRoute(const HomeView());
       case Routes.repo:
-        return _createSlideTransitionRoute(const RepoView());
+        final argument=settings.arguments as Map<String,dynamic>;
+    return _createSlideTransitionRoute(RepoView(owner: argument["owner"],repo: argument["repo"], updatedAt: argument["updatedAt"], avatarUrl: argument["avatarUrl"],));
       default:
         return _createSlideTransitionRoute(const SignInView());
     }

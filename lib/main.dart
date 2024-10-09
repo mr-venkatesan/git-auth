@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:git_auth/router/route_handler.dart';
@@ -42,18 +41,8 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RouteHandler.generateRoute,
 
       // Sets the initial route of the app based on whether the user is signed in or not.
-      initialRoute: isAlreadySignIn(),
+      initialRoute: Routes.root,
     );
-  }
-
-  // This method checks if a user is already signed in.
-  // Returns the appropriate initial route: 'home' if signed in, or 'root' if not.
-  String isAlreadySignIn() {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      return Routes.home;
-    }
-    return Routes.root;
   }
 }
 
